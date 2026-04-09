@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Ucu.Poo.Restaurant
@@ -7,11 +8,25 @@ namespace Ucu.Poo.Restaurant
     /// </summary>
     public class Table
     {
-        private List<Dish> order = new List<Dish>();
+        public int Number { get; }
+        public bool IsOccupied { get; private set; }
 
-        public bool HasOrders()
+        public Order Order { get; private set; } = new Order();
+
+        public Table(int number)
         {
-            return this.order.Count > 0;
+            this.Number = number;
+        }
+
+        public void Occupy()
+        {
+            IsOccupied = true;
+        }
+
+        public void Free()
+        {
+            IsOccupied = false;
+            Order = new Order();
         }
     }
 }

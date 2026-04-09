@@ -2,13 +2,10 @@ using System.Collections.Generic;
 
 namespace Ucu.Poo.Restaurant
 {
-    /// <summary>
-    /// Representa el conjunto de platillos <see cref="Dish"/> disponibles en el
-    /// restaurante.
-    /// </summary>
-    public class Menu
+    public class Order
     {
         private List<Dish> dishes = new List<Dish>();
+
         public void AddDish(Dish dish)
         {
             dishes.Add(dish);
@@ -19,16 +16,19 @@ namespace Ucu.Poo.Restaurant
             dishes.Remove(dish);
         }
 
-        public Dish GetDish(string name)
+        public bool HasDishes()
         {
+            return dishes.Count > 0;
+        }
+
+        public double GetTotal()
+        {
+            double total = 0;
             foreach (Dish dish in dishes)
             {
-                if (dish.Name == name)
-                    return dish;
+                total += dish.Price;
             }
-
-            return null;
+            return total;
         }
     }
 }
-
