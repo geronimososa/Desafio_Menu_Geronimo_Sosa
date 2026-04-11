@@ -36,6 +36,8 @@ namespace Ucu.Poo.Restaurant
             takeaway.Order.AddDish(dish);
         }
 
+        // Waiter no calcula el total directamente, delegandolo a Order, que es quien
+        // tiene la lista de platillos y sus precios.
         public double GetBillAmount(Table table)
         {
             return table.Order.GetTotal();

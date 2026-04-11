@@ -21,6 +21,9 @@ namespace Ucu.Poo.Restaurant
             return dishes.Count > 0;
         }
 
+// Order es la clase que contiene la lista de platos y sus precios, por lo que
+// es la única que tiene toda la información para poder calcular el total.
+
         public double GetTotal()
         {
             double total = 0;
